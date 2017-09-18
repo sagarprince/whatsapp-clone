@@ -24,3 +24,4 @@ $ ionic cordova run ios
 
 Substitute ios for android if not on a Mac.
 
+https://github.com/Urigo/Ionic2CLI-Meteor-WhatsApp
