@@ -1,0 +1,92 @@
+<div class="section-wrap">
+    <div class="top-section">
+        <div class="col-xs-12 col-sm-6 padding-left-0">
+            <app-heading-section heading="Jobs">
+                <ol class="breadcrumb" breadcrumbs>
+                    <li><a [routerLink]="['/admin/dashboard']">Dashboard</a></li>                    
+                    <li class="active">Jobs</li>
+                </ol>
+            </app-heading-section>
+        </div>
+        <div class="col-xs-12 col-sm-6 align-right padding-right-0">
+            <div class="inner toolbar-button-inner">
+                <div class="select-job-type-box toolbar-button">
+                    <label>Select Job Types</label>
+                    <md-select placeholder="Select Job Types" [(ngModel)]="selJobType" floatPlaceholder="never">
+                        <md-option *ngFor="let jobType of jobTypes" [value]="jobType.key">{{ jobType.name }}</md-option>
+                    </md-select>                    
+                </div>
+            </div>
+        </div>  
+        <div class="clearfix"></div>
+    </div>  
+
+    <div class="data-table-section">
+        <table datatable [dtOptions]="dtOptions" class="row-border hover responsive">
+            <thead>
+                <tr>
+                    <th class="sortable">
+                        <span>JOB ID <div class="sort-arrows"><i class="fa fa-sort-asc"></i><i class="fa fa-sort-desc"></i></div></span>
+                        <input class="filter-input" type="text" data-index="0" placeholder="Filter"/>
+                    </th>
+                    <th class="sortable">
+                        <span>NAME <div class="sort-arrows"><i class="fa fa-sort-asc"></i><i class="fa fa-sort-desc"></i></div></span>
+                        <input class="filter-input" type="text" data-index="1" placeholder="Filter"/>
+                    </th>
+                    <th class="sortable">
+                        <span>STATUS <div class="sort-arrows"><i class="fa fa-sort-asc"></i><i class="fa fa-sort-desc"></i></div></span>
+                        <input class="filter-input" type="text" data-index="2" placeholder="Filter"/>
+                    </th>
+                    <th class="sortable">
+                        <span>SUBMISSION METHOD <div class="sort-arrows"><i class="fa fa-sort-asc"></i><i class="fa fa-sort-desc"></i></div></span> 
+                        <input class="filter-input" type="text" data-index="3" placeholder="Filter"/>
+                    </th>
+                    <th class="sortable">
+                        <span>SUBMITTED DATE <div class="sort-arrows"><i class="fa fa-sort-asc"></i><i class="fa fa-sort-desc"></i></div></span>  
+                        <input class="filter-input" type="text" data-index="4" placeholder="Filter"/>
+                    </th>
+                    <th class="sortable">
+                        <span>DUE DATE <div class="sort-arrows"><i class="fa fa-sort-asc"></i><i class="fa fa-sort-desc"></i></div></span>  
+                        <input class="filter-input" type="text" data-index="5" placeholder="Filter"/>
+                    </th>
+                    <th class="sortable">
+                        <span>GROUP <div class="sort-arrows"><i class="fa fa-sort-asc"></i><i class="fa fa-sort-desc"></i></div></span>  
+                        <input class="filter-input" type="text" data-index="6" placeholder="Filter"/>
+                    </th>
+                </tr>
+            </thead>
+
+            <tbody>
+                <tr *ngFor="let record of records">
+                    <td data-title="JOB ID">
+                        <span class="data-el">{{record.job_id}}</span>
+                    </td>
+                    <td data-title="NAME" class="link">
+                        <span class="data-el" [routerLink]="['job-details/'+record.job_id]">{{record.job_name}}</span>
+                    </td>
+                    <td data-title="STATUS">
+                        <span class="data-el tag {{record.status | statusPipe}}">{{record.status}}</span>
+                    </td>
+                    <td data-title="SUBMISSION METHOD">
+                        <span class="data-el">{{record.submission_method}}</span>
+                    </td>
+                    <td data-title="SUBMITTED DATE">
+                        <span class="data-el">{{record.submitted_date}}</span>
+                    </td>
+                    <td data-title="DUE DATE">
+                        <span class="data-el">{{record.due_date}}</span>
+                    </td>
+                    <td data-title="GROUP">
+                        <span class="data-el">{{record.group}}</span>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+</div>
+
+
+
+
+
+

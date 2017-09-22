@@ -1,0 +1,324 @@
+@import '../../../../styles/variables';
+@import '../../../../styles/mixins';
+
+.lf-page-main-wrap {
+  overflow: hidden;
+  height: 100%;
+  position: relative;
+}
+
+.login-page-bg {
+    position: absolute;
+    left: 0px;
+    top: 0px;
+    height: 100%;
+    width: 67.58%;
+    background-color:$primary-color;
+    text-align: center;
+
+    @media(min-width: 768px) and (max-width: 991px) {
+      width: 50%;
+    }
+
+    @media(min-width: 100px) and (max-width: 767px) {
+      display: none;
+    }
+
+    .login-page-bg_pic {
+        position: relative;
+        top: 50%;
+        @include transform(translateY(-50%));
+    }
+}
+
+.login {
+  .mat-checkbox-frame {
+      border-width: 1px;
+      border-color: #B5B5B5;
+  }
+}
+
+.btn-orange {
+    background-color:$secondary-color;
+    color:$white;
+}
+
+.user-id {    	
+    color: #A4A4A4;
+    @include applyFont($fontSize: 15px);        
+    text-align: justifyLeft;
+}
+
+.login {
+  margin: 0;
+  width: 415px;
+  max-width: 90%;
+  background: $white;
+  box-shadow: 0px 0px 3px 2px rgba(0, 0, 0, 0.28);
+  position: absolute;
+  right: 0;
+  height: 100%;
+  top: 0;
+  bottom: 0;
+  -webkit-animation: slide 0.5s forwards;
+  -webkit-animation-delay: 2s;
+  animation: slide 0.3s forwards;
+  animation-delay: 0.1s;
+  right: -400px;
+
+  @media(min-width: 768px) and (max-width: 991px) {
+    width: 50%;
+  }
+
+  @media(min-width: 100px) and (max-width: 767px) {
+    width: 100%;
+    max-width: initial;
+  }
+
+  @media (min-height: 100px) and (max-height: 499px) {
+    overflow: auto;
+  }
+}
+
+@-webkit-keyframes slide {
+  100% {
+    right: 0;
+  }
+}
+
+
+@keyframes slide {
+  100% {
+    right: 0;
+  }
+}
+
+
+.wrapper-lg {
+  padding: 30px;
+  position: relative;
+  
+  @media (min-height: 400px) and (max-height: 999999px) {
+    top: 50%;
+    @include transform(translateY(-50%));
+  }
+
+  &.forgot-password-wrap { 
+    top: 0px;
+    @include transform(none);
+
+    @media (min-height: 680px) and (max-height: 999999px) {
+      top: 50px;
+    }
+  }
+}
+
+.copyright-row {
+  @media (min-height: 500px) and (max-height: 999999px) {
+    position: absolute;
+    width: 100%;
+    bottom: 15px;
+    left: 0px;
+  }
+} 
+
+.forgot-password-main-wrap {  
+  .login {
+    @media (min-height: 100px) and (max-height: 680px) {
+      overflow: auto;
+    }
+  }
+  .copyright-row {
+    @media (min-height: 100px) and (max-height: 680px) {
+      position: relative;
+      bottom: 0px;
+    }
+  }
+}
+
+.login-info {
+  padding: 0px;
+  margin-top: 60px;
+}
+
+.home-input{margin-top:5px;}
+
+.login-info {
+  label {
+    color: #3f5364;
+    font-weight: normal;
+  }
+  input {
+    padding: 0px;
+    font-size: 14px;
+    outline: none;
+  }
+}
+
+.login-input {
+  height: 30px;
+  padding: 0 15px 0 0px;
+  width: 100%;
+  border-top: none;
+  border-left: none;
+  border-right: none;
+  border-bottom: 1px solid #B5B5B5;
+}
+
+.myBtn {
+  padding: 0px 28px;
+  color: #fff;
+}
+
+.padding45 {
+  padding: 0px 45px;
+}
+
+.padding30 {
+  padding: 0px 30px;
+}
+.user-pass {
+  text-align: center;
+  border-top: 1px solid #d4d4dd;
+  margin: 25px 0;
+  padding: 5px 0;
+}
+
+
+
+.checkbox-primary input[type="checkbox"]:checked + label::before {
+  background-color: #428bca;
+  border-color: #428bca;
+}
+
+.checkbox label::before {
+  content: "";
+  display: inline-block;
+  position: absolute;
+  width: 17px;
+  height: 17px;
+  left: 0;
+  margin-left: -20px;
+  border: 1px solid #cccccc;
+  border-radius: 3px;
+  background-color: #fff;
+  -webkit-transition: border 0.15s ease-in-out, color 0.15s ease-in-out;
+  -o-transition: border 0.15s ease-in-out, color 0.15s ease-in-out;
+  transition: border 0.15s ease-in-out, color 0.15s ease-in-out;
+}
+
+.checkbox-info input[type="checkbox"]:checked + label::after {
+  color: #fff;
+}
+
+.checkbox {
+  input[type="checkbox"]:checked + label::after {
+    font-family: 'FontAwesome';
+    content: "\f00c";
+  }
+  label::after {
+    display: inline-block;
+    position: absolute;
+    width: 16px;
+    height: 16px;
+    left: 0;
+    top: 0;
+    margin-left: -20px;
+    padding-left: 3px;
+    padding-top: 1px;
+    font-size: 11px;
+    color: #FFF;
+  }
+  &.checkbox-primary {
+    margin-left: 20px;
+  }
+}
+
+.user-pass {
+  text-align: center;
+  border-top: 1px solid $white;
+  margin: 10px 0;
+  padding: 10px 0;
+}
+
+.login-info .user-pass a {
+  color: #3f5364;
+  text-decoration: none;
+  font-size: 14px;
+  text-align: center;
+}
+
+.martop20 {
+  margin: 20px 0px;
+}
+
+.mtop0 h4 {
+  margin-top: 20px;
+  font-size: 18px;
+  line-height: 30px;
+  font-weight: 600;
+  color: #3B4B5B;
+}
+
+.back-btn .material-icons {
+  position: absolute;
+  transform: rotate(-180deg);
+  -webkit-transform: rotate(-180deg);
+  -moz-transform: rotate(-180deg);
+  -ms-transform: rotate(-180deg);
+}
+
+.l-footer a {
+  text-decoration: none;
+  color:$secondary-color;
+}
+
+.mdl-button {
+  
+    border: none;
+    border-radius: 2px;
+    color: $white;
+    position: relative;
+    height: 36px;
+    margin: 0;
+    min-width: 64px;
+    padding: 0 16px;
+    display: inline-block;
+    font-size: 14px;
+    font-weight: 500;
+    text-transform: uppercase;
+    letter-spacing: 0;
+    overflow: hidden;
+    will-change: box-shadow;
+    transition: box-shadow .2s cubic-bezier(.4,0,1,1),background-color .2s cubic-bezier(.4,0,.2,1),color .2s cubic-bezier(.4,0,.2,1);
+    outline: none;
+    cursor: pointer;
+    text-decoration: none;
+    text-align: center;
+    line-height: 36px;
+    vertical-align: middle;
+
+    :hover{
+        background-color: $secondary-color;
+        color: #fff !important;
+    }
+}
+
+
+
+.mdl-button--raised {
+  &:focus:not(:active) {
+    background-color: $secondary-color;
+    color: #fff !important;
+  }
+  &[disabled][disabled] {
+    background-color: $secondary-color;
+    color: #fff;
+    opacity: 0.65;
+  }
+}
+
+.blue_text{
+  color: $primary_shade1;
+}
+

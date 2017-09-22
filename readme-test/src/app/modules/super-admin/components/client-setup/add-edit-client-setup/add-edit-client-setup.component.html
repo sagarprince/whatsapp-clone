@@ -1,0 +1,39 @@
+<div class="section-wrap">
+    <div class="top-section row-10">
+        <div class="col-xs-12 col-sm-6">
+            <app-heading-section heading="Client Setup">
+                <ol class="breadcrumb" breadcrumbs>
+                    <li><a [routerLink]="['/super-admin/dashboard']">Dashboard</a></li>                    
+                    <li><a [routerLink]="['/super-admin/client-setup']">Client Setup</a></li>
+                    <li class="active">Add Client</li>
+                </ol>
+            </app-heading-section>
+        </div>          
+        <div class="clearfix"></div>
+    </div>
+
+    <div class="middle-section client-setup-tabs-wrap">
+        <md-card class="client-setup-tabs-card">
+          <md-tab-group>
+            <md-tab label="Information">
+              <app-client-information></app-client-information>
+            </md-tab>
+            <md-tab label="Assign Storefront">
+              Assign Storefront
+            </md-tab>
+            <md-tab label="Facilities">
+              Facilities
+            </md-tab>
+            <md-tab label="Role Setup">
+              Role Setup
+            </md-tab>            
+            <md-tab label="Pricing">
+              Pricing
+            </md-tab>
+            <md-tab label="Site Settings">
+              <app-site-settings></app-site-settings>
+            </md-tab>
+          </md-tab-group>
+        </md-card>
+    </div>
+</div>

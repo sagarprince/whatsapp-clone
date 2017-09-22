@@ -1,0 +1,32 @@
+@import '../../../../../styles/variables';
+@import '../../../../../styles/mixins';
+
+.data-table-section {
+    margin-top: 10px;
+
+    table.dataTable {
+        tbody {
+            tr {
+                td {
+                    @media(min-width: 992px) and (max-width: 999999px) {
+                        &:nth-child(1) {
+                            width: 20%;
+                        }
+                        &:nth-child(2) {
+                            width: 20%;
+                        }
+                        &:nth-child(3) {
+                            width: 20%;
+                        }
+                        &:nth-child(4) {
+                            width: 20%;
+                        }
+                        &:nth-child(5) {
+                            width: 10%;
+                        }
+                    }                    
+                }
+            }
+        }
+    }
+}

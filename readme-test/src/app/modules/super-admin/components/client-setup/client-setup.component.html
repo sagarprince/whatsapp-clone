@@ -1,0 +1,73 @@
+<div class="section-wrap">
+    <div class="top-section row-10">
+        <div class="col-xs-12 col-sm-6">
+            <app-heading-section heading="Client Setup">
+                <ol class="breadcrumb" breadcrumbs>
+                    <li><a [routerLink]="['/super-admin/dashboard']">Dashboard</a></li>                    
+                    <li class="active">Client Setup</li>
+                </ol>
+            </app-heading-section>
+        </div>
+        <div class="col-xs-12 col-sm-6 align-right">
+            <div class="inner toolbar-button-inner">
+                <div class="toolbar-button">
+                    <button md-button class="app-btn orange-button" [routerLink]="['add']">
+                        Add Client
+                    </button>                    
+                </div>
+            </div>
+        </div>  
+        <div class="clearfix"></div>
+    </div>  
+
+    <div class="data-table-section">
+        <table datatable [dtOptions]="dtOptions" [dtTrigger]="dtTrigger" class="row-border hover responsive">
+            <thead>
+                <tr>
+                    <th class="sortable">
+                        <span>CLIENT CODE <div class="sort-arrows"><i class="fa fa-sort-asc"></i><i class="fa fa-sort-desc"></i></div></span>
+                        <input class="filter-input" type="text" data-index="0" placeholder="Filter"/>
+                    </th>
+                    <th class="sortable">
+                        <span>CLIENT NAME <div class="sort-arrows"><i class="fa fa-sort-asc"></i><i class="fa fa-sort-desc"></i></div></span>
+                        <input class="filter-input" type="text" data-index="1" placeholder="Filter"/>
+                    </th>
+                    <th class="sortable">
+                        <span>EMAIL ID <div class="sort-arrows"><i class="fa fa-sort-asc"></i><i class="fa fa-sort-desc"></i></div></span>
+                        <input class="filter-input" type="text" data-index="2" placeholder="Filter"/>
+                    </th>                 
+                    <th>
+                        <span>ACTION</span>
+                        <div style="height: 35px;"></div>
+                    </th>
+                </tr>
+            </thead>
+
+            <tbody>
+                <tr *ngFor="let record of records">
+                    <td data-title="CLIENT CODE">
+                        <span class="data-el">{{record.clientCode}}</span>
+                    </td>
+                    <td data-title="CLIENT NAME" class="no-wrap-text">
+                        <span class="data-el">{{record.clientName}}</span>
+                    </td>
+                    <td data-title="EMAIL ID">
+                        <span class="data-el">{{record.emailId}}</span>
+                    </td>                  
+                    <td data-title="ACTION" class="actions">
+                        <div class="action_buttons">
+                            <span class="edit" (click)="editClientPopup(record)"><i class="fa fa-pencil"></i></span>
+                            <span class="delete" (click)="deleteClient(record.clientId)"><i class="fa fa-trash-o"></i></span>
+                        </div>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+</div>
+
+
+
+
+
+

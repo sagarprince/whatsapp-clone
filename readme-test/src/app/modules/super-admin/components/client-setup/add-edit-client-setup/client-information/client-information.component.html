@@ -1,0 +1,129 @@
+<div class="component-wrap add-edit-client-information"> 
+  <form [formGroup]="clientInformationForm" novalidate>
+    <div class="form-wrap row">
+        <div class="col-sm-6 col-xs-12">
+          <div class="file-upload-inner image-file-uploader-box">
+              <div class="image-selection-wrap" *ngIf="logoSelected == true">
+                <div class="selected-image">
+                    <img src="{{clientInformationForm.controls['logo'].value}}" />
+                </div>
+                <div class="selected-image-actions">
+                    <div class="i-actions-inner">
+                      <label class="i-actions replace" for="input-file">REPLACE</label><br/>
+                      <div class="i-actions remove" (click)="removeLogo()">REMOVE</div>
+                    </div>
+                </div>
+                <div class="clearfix"></div>
+              </div>
+              <label class="uploader" for="input-file" *ngIf="logoSelected == false">
+                  <div class="icon-text-wrap">
+                      <i class="icon-upload3"></i><br/>
+                      <span class="file-upload-text">Upload Files</span>
+                      <span class="file-upload-hint-text">(Logo Size 230px X 80px)</span>                      
+                  </div>
+              </label>            
+              <input id="input-file" type="file" name="file" accept="image/*" (change)="selectLogo(input)" #input />            
+          </div>
+        </div>
+        <div class="col-sm-6 col-xs-12">
+          <div class="row">
+            <div class="col-sm-6 col-xs-6">
+              <md-input-container class="full-width-input-wrap">
+                <input mdInput placeholder="Enter Client Code" formControlName="clientCode">              
+                <md-error *ngIf="clientInformationForm.controls['clientCode'].hasError('required')">
+                    Client Code is <strong>required</strong>
+                </md-error>
+              </md-input-container>          
+            </div>
+            <div class="col-sm-6 col-xs-6">
+              <md-input-container class="full-width-input-wrap">
+                <input mdInput placeholder="Enter Client Name*" formControlName="clientName">              
+                <md-error *ngIf="clientInformationForm.controls['clientName'].hasError('required')">
+                    Client Name is <strong>required</strong>
+                </md-error>
+              </md-input-container>
+            </div>
+            <div class="col-sm-12 col-xs-12">
+              <md-input-container class="full-width-input-wrap">
+                <textarea mdInput placeholder="Enter Address" formControlName="address"></textarea>
+                  <md-error *ngIf="clientInformationForm.controls['address'].hasError('required')">
+                    Address is <strong>required</strong>
+                </md-error>                         
+              </md-input-container>        
+            </div>
+          </div>
+        </div>    
+        <div class="clearfix"></div>            
+        <div class="col-sm-3 col-xs-6">
+          <md-input-container class="full-width-input-wrap">
+            <input mdInput placeholder="Enter Country" formControlName="country">   
+            <md-error *ngIf="clientInformationForm.controls['country'].hasError('required')">
+                Country is <strong>required</strong>
+            </md-error>                       
+          </md-input-container>          
+        </div>        
+        <div class="col-sm-3 col-xs-6">
+          <md-input-container class="full-width-input-wrap">
+            <input mdInput placeholder="Enter State" formControlName="state">    
+            <md-error *ngIf="clientInformationForm.controls['state'].hasError('required')">
+                State is <strong>required</strong>
+            </md-error>                      
+          </md-input-container>          
+        </div> 
+        <div class="col-sm-3 col-xs-6">
+          <md-input-container class="full-width-input-wrap">
+            <input mdInput placeholder="Enter City" formControlName="city">   
+            <md-error *ngIf="clientInformationForm.controls['city'].hasError('required')">
+                City is <strong>required</strong>
+            </md-error>                       
+          </md-input-container>          
+        </div>
+        <div class="col-sm-3 col-xs-6">
+          <md-input-container class="full-width-input-wrap">
+            <input mdInput placeholder="Enter Zip Code" formControlName="zipCode"> 
+              <md-error *ngIf="clientInformationForm.controls['zipCode'].hasError('required')">
+                ZipCode is <strong>required</strong>
+            </md-error>                         
+          </md-input-container>
+        
+        </div>         
+        <div class="col-sm-3 col-xs-6">
+          <md-input-container class="full-width-input-wrap">
+            <input mdInput placeholder="Enter Country Code" formControlName="countryCode">
+            <md-error *ngIf="clientInformationForm.controls['countryCode'].hasError('required')">
+                Country Code is <strong>required</strong>
+            </md-error>                          
+          </md-input-container>
+          
+        </div>      
+        <div class="col-sm-3 col-xs-6">
+          <md-input-container class="full-width-input-wrap">
+            <input mdInput placeholder="Enter Phone Number" formControlName="phoneNumber">                          
+          </md-input-container>
+        </div>
+        <div class="col-sm-3 col-xs-6">
+          <md-input-container class="full-width-input-wrap">
+            <input mdInput placeholder="Enter Email" formControlName="emailId">              
+            <md-error *ngIf="clientInformationForm.controls['emailId'].hasError('required')">
+                Email is <strong>required</strong>
+            </md-error>
+            <md-error *ngIf="clientInformationForm.controls['emailId'].hasError('pattern')">
+                Please enter a valid email id.
+            </md-error>
+          </md-input-container>
+        </div>
+        <div class="col-sm-3 col-xs-6">
+          <md-input-container class="full-width-input-wrap">
+            <input mdInput placeholder="Enter Fax" formControlName="fax">                          
+          </md-input-container>
+        </div>        
+    </div>
+
+    <div class="action-wrap">
+      <div class="text-right">
+          <button type="button" md-button class="app-btn gray-button">Cancel</button>
+          <button type="submit" md-button class="app-btn orange-button save-btn" (click)="saveClient(clientInformationForm)">Save</button>
+      </div>
+    </div>
+  </form>
+</div>

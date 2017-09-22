@@ -1,0 +1,100 @@
+<div class="component-wrap">
+  <div class="heading-wrap">
+    <div class="inner">
+      <div class="popup-heading">{{heading}}</div>
+      <div class="popup-close" (click)="closePopup()"><i class="material-icons">close</i></div>
+    </div>
+  </div>
+
+  <div class="section-tabs">
+      <ul>
+          <li [class.active]="activeTab == 1" (click)="selectTab(1)">Manual Add</li>
+          <li [class.active]="activeTab == 2" (click)="selectTab(2)">Upload List</li>
+      </ul>
+  </div>
+
+  <div class="manual-add-wrap" *ngIf="activeTab == 1">
+    <form [formGroup]="addEditUserForm" novalidate>
+        <div class="form-wrap row">    
+            <div class="col-sm-6 col-xs-12">
+                <md-input-container class="full-width-input-wrap">
+                    <input mdInput placeholder="User Name" formControlName="userName">              
+                    <md-error *ngIf="addEditUserForm.controls['userName'].hasError('required')">
+                        Username is required.
+                    </md-error>
+                </md-input-container>
+            </div>
+            <div class="col-sm-6 col-xs-12">
+                <md-input-container class="full-width-input-wrap">
+                    <input mdInput placeholder="Email" formControlName="email">            
+                    <md-error *ngIf="addEditUserForm.controls['email'].hasError('required')">
+                        Email is required
+                    </md-error>
+                    <md-error *ngIf="addEditUserForm.controls['email'].hasError('pattern')">
+                        Please enter a valid email id.
+                    </md-error>
+                </md-input-container>
+            </div>
+            <div class="col-sm-6 col-xs-12">
+                <md-input-container class="full-width-input-wrap">
+                    <input mdInput placeholder="First Name" formControlName="firstName">              
+                    <md-error *ngIf="addEditUserForm.controls['firstName'].hasError('required')">
+                        First name is required.
+                    </md-error>
+                </md-input-container>
+            </div>
+            <div class="col-sm-6 col-xs-12">
+                <md-input-container class="full-width-input-wrap">
+                    <input mdInput placeholder="Last Name" formControlName="lastName">              
+                    <md-error *ngIf="addEditUserForm.controls['lastName'].hasError('required')">
+                        Last name is required.
+                    </md-error>
+                </md-input-container>
+            </div>
+            <div class="col-sm-6 col-xs-12">
+                <md-input-container class="full-width-input-wrap">
+                    <input mdInput placeholder="Contact Number" formControlName="contactNumber">
+                </md-input-container>
+            </div>        
+            <div class="col-sm-6 col-xs-12">
+                <div class="full-width-input-wrap">
+                    <md-select placeholder="Group Name" multiple formControlName="group">
+                        <md-option *ngFor="let group of groups" [value]="group.groupId">
+                            {{ group.groupName }}
+                        </md-option>
+                    </md-select>
+                </div> 
+            </div>        
+        </div>
+
+        <div class="action-wrap">
+            <div class="text-right">
+                <button md-button class="app-btn gray-button" (click)="closePopup()">Cancel</button>
+                <button type="submit" md-button class="app-btn orange-button save-btn" (click)="saveUser(addEditUserForm)">{{saveBtnTitle}}</button>
+            </div>
+        </div>
+    </form>
+  </div>
+
+
+  <div class="upload-list-wrap" *ngIf="activeTab == 2">
+    <div class="file-upload-wrap">
+        <label class="uploader" for="input-file">
+            <div class="icon-text-wrap">
+                <i class="icon-upload3"></i><br/>
+                <span class="file-upload-text">Upload Files</span>                
+            </div>
+        </label>
+        <input id="input-file" type="file" name="file" (change)="fileChange(input)" #input/>            
+        <a href="\assets\sample.xlsx" class="download-excel-template" download>Download Excel template</a>
+    </div>
+
+    <div class="action-wrap">
+        <div class="text-right">
+            <button type="button" md-button class="app-btn gray-button" (click)="closePopup()">Cancel</button>
+            <button type="submit" (click)="bulkUpload()" md-button class="app-btn orange-button save-btn">{{saveBtnTitle}}</button>
+        </div>
+    </div>
+  </div>
+
+</div>

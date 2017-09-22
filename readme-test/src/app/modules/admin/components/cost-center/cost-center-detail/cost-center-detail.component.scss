@@ -1,0 +1,187 @@
+@import '../../../../../../styles/variables';
+@import '../../../../../../styles/mixins';
+
+.middle-section {
+    &.row {
+        margin-left: -10px;
+        margin-right: -10px;
+    }
+
+    .cols {
+        margin-top: 30px;
+    }    
+
+    .card-details {
+        min-height: 185px;
+
+        .card-inner {
+            h2 {
+                @include applyFont($fontFamily: 'AvenirLTStd-Book', $fontSize: 15px, $fontWeight: 600);
+                color: #40505B;
+                margin: 0px;
+            }
+
+            .details {
+                margin-top: 15px;
+
+                p {
+                    margin-top: 8px;
+                    margin-bottom: 0px;
+                    &:first-child {
+                        margin-top: 0px;
+                    }
+
+                    label {
+                        @include applyFont($fontSize: 13px, $lineHeight: 20px);
+                        color: #A4A4A4;
+                        float: left;    
+                        margin: 0px;                    
+                    }
+
+                    i {
+                        font-size: 14px;
+                        color: $gray_shade2;
+                        margin-right: 10px;
+                        margin-top: 4px;
+                        float: left;
+                        display: block;
+                    }
+
+                    span {
+                        @include applyFont($fontSize: 13px, $lineHeight: 20px);
+                        color: $gray_shade2;
+                        float: left;
+                        display: block;
+                        width: 80%;
+                    }               
+
+                    &:after {
+                        display: block;
+                        content: '';
+                        clear: both;
+                    }  
+                }
+            }
+        }
+    }
+
+    .order-details-col {
+        .card-details {
+            .card-inner {          
+                .details {            
+                    p {
+                        label {
+                            width: 45%;
+                            text-align: right;
+                            margin-right: 12px;                         
+                        }
+                        span {
+                            width: 50%;
+                        }
+                    }
+                }
+            }
+        }
+    }
+
+    .payment-method-edit-col {
+        ._rw {
+            margin-top: 15px;
+
+            &:first-child {
+                margin-top: 0px;
+            }
+
+            &:after {
+                content: '';
+                display: block;
+                clear: both;
+            }
+        }
+
+        .icon {
+            width: 35px;
+            height: 30px;
+            background-color: #ddd;
+            margin-right: 10px;
+            float: left;
+        }
+
+        .text {
+            @include applyFont($fontSize: 20px, $lineHeight: 30px);
+            color: $gray_shade2;
+        }
+
+        .text, .text-el {
+            float: left;
+        }
+
+        .text-el {
+            line-height: 10px;
+            
+            label {
+                @include applyFont($fontSize: 11px);
+                letter-spacing: 0.5px;
+                color: #A4A4A4;
+                margin: 0px;
+                float: none;
+            }
+            span {
+                @include applyFont($fontSize: 13px);
+                color: $gray_shade2;
+                float: none;
+                margin-top: 0px;
+                display: block;
+            }
+            .edit-link {
+                @include applyFont($fontSize: 13px, $fontWeight: 600);
+                color: #FF8D2C;
+                cursor: pointer;
+                margin-top: 4px;
+            }
+        }
+    }
+
+    .right-border {
+        @media(min-width: 768px) and (max-width: 99999px) {
+            border-right: 2px solid #E1E1E1;
+        }
+        
+    }
+
+    .padding-left-15 {
+        @media(min-width: 768px) and (max-width: 99999px) {
+            padding-left: 15px;
+        }
+    }
+}
+
+.mat-card{
+    padding-bottom:35px;
+    font-family: "ProximaNova-Regular";
+    margin-bottom:15px;
+    margin-top:15px;
+    color:$gray_shade2!important;
+}
+
+.cost-center-details-card{
+    color: $gray_shade2;
+    @include applyFont($fontSize: 13px, $fontWeight: bold);  
+
+    .mat-card {
+        @include applyFont($fontSize: 13px, $fontWeight: bold);  
+        margin-bottom: 15px;
+        margin-top: 15px;
+        color: $gray_shade2!important;
+        padding: 9px 24px 24px!important;
+    }
+    
+    i {
+        color: $gray_shade2;	
+        width: 20px;
+    }
+
+    .info-cols {
+        margin-top: 15px;
+    }
+}

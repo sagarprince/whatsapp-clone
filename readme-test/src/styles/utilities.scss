@@ -1,0 +1,74 @@
+.nopadding {
+    padding: 0px;
+}
+
+.row-10 {
+  margin-left: -10px;
+  margin-right: -10px;
+
+  @media(min-width: 100px) and (max-width: 767px) {
+    margin-left: 0px;
+    margin-right: 0px;
+  }
+
+  &:after {
+    content: '';
+    clear: both;
+    display: block;
+  }
+}
+
+.margT0 {
+  margin-top: 0px;
+}
+
+.margB0 {
+  margin-bottom: 0px;
+}
+
+.margL {
+  margin-left: 0px;
+}
+
+.margR {
+  margin-right: 0px;
+}
+
+.text-center {
+    text-align: center;
+}
+.text-right {
+    text-align: right;
+}
+
+.align-left {
+  text-align: left;
+}
+
+.align-right {
+  text-align: right;
+}
+
+.padding-left-0 {
+  @media(min-width: 768px) and (max-width: 999999px) {
+    padding-left: 0px;
+  }
+}
+
+.padding-right-0 {
+  @media(min-width: 768px) and (max-width: 999999px) {
+    padding-right: 0px;
+  }  
+}
+
+.link {
+    cursor: pointer;
+}
+
+.margB30{
+  margin-bottom:30px;
+}
+
+.martop10{
+  margin-top:10px;
+}

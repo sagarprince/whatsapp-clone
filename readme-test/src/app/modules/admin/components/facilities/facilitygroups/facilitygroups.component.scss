@@ -1,0 +1,71 @@
+@import '../../../../../../styles/variables';
+@import '../../../../../../styles/mixins';
+
+.data-table-section {
+    margin-top: 10px;
+
+    table.dataTable {
+        tbody {
+            tr {
+                td {
+                    @media(min-width: 992px) and (max-width: 999999px) {
+                        &:nth-child(2) {
+                            span {
+                                display: block;
+                                // width: 210px;
+                                overflow: hidden;
+                            }
+                        }
+
+                        &:nth-child(3) {
+                            width: 15%;
+                        }
+
+                        &:nth-child(4) {
+                            width: 20%;
+                        }
+
+                        &:nth-child(5) {
+                            width: 10%;
+                        }
+                    }
+                }
+            }
+        }
+    }
+}
+
+.facility_card {
+    color: $gray_shade2;
+    @include applyFont($fontSize: 13px, $fontWeight: bold);  
+
+    .mat-card {
+        @include applyFont($fontSize: 13px, $fontWeight: bold);  
+        margin-bottom: 15px;
+        margin-top: 15px;
+        color: $gray_shade2!important;
+        padding: 9px 24px 24px!important;
+    }
+    
+    i {
+        color: $gray_shade2;	
+        width: 20px;
+    }
+
+    .info-cols {
+        margin-top: 15px;
+        position: relative;
+
+        i {
+            display: block;
+            position: absolute;
+            top: 1px;
+            font-size: 15px;
+        }
+
+        span {
+            display: block;
+            padding-left: 20px;
+        }
+    }
+}

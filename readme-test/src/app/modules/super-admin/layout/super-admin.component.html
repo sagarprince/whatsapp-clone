@@ -1,0 +1,9 @@
+<md-sidenav-container fullscreen>
+    <md-sidenav #sidenav mode="side" opened="true" class="app-sidenav">
+        <app-sidenav [sidenav]="sidenav" [menus]="menus"></app-sidenav>
+    </md-sidenav>
+    <app-header [sidenav]="sidenav"></app-header>
+    <div class="main-content">
+        <router-outlet></router-outlet>
+    </div>
+</md-sidenav-container>

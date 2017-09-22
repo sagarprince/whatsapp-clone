@@ -1,0 +1,88 @@
+<div class="section-wrap">
+    <div class="top-section row-10">
+        <div class="col-xs-12 col-sm-6">
+            <app-heading-section heading="Cost Center">
+                <ol class="breadcrumb" breadcrumbs>
+                    <li><a [routerLink]="['/admin/dashboard']">Dashboard</a></li>                    
+                    <li class="active">Cost Center</li>
+                </ol>
+            </app-heading-section>
+        </div>
+        <div class="col-xs-12 col-sm-6 align-right">
+            <div class="inner toolbar-button-inner">
+                <div class="toolbar-button">
+                    <button md-button class="app-btn orange-button" (click)="addCostCenterPopup()">
+                        Add Cost Center
+                    </button>                    
+                </div>
+            </div>
+        </div>  
+        <div class="clearfix"></div>
+    </div>  
+
+    <div class="data-table-section">
+        <table datatable [dtOptions]="dtOptions" [dtTrigger]="dtTrigger" class="row-border hover responsive">
+            <thead>
+                <tr>
+                    <th class="sortable">
+                        <span>COST CENTER CODE <div class="sort-arrows"><i class="fa fa-sort-asc"></i><i class="fa fa-sort-desc"></i></div></span>
+                        <input class="filter-input" type="text" data-index="0" placeholder="Filter"/>
+                    </th>
+                    <th class="sortable">
+                        <span>COST CENTER <div class="sort-arrows"><i class="fa fa-sort-asc"></i><i class="fa fa-sort-desc"></i></div></span>
+                        <input class="filter-input" type="text" data-index="1" placeholder="Filter"/>
+                    </th>
+                    <th class="sortable">
+                        <span>ASSIGN GROUP <div class="sort-arrows"><i class="fa fa-sort-asc"></i><i class="fa fa-sort-desc"></i></div></span>
+                        <input class="filter-input" type="text" data-index="2" placeholder="Filter"/>
+                    </th>
+                    <th class="sortable">
+                        <span>JOB COUNTS <div class="sort-arrows"><i class="fa fa-sort-asc"></i><i class="fa fa-sort-desc"></i></div></span> 
+                        <input class="filter-input" type="text" data-index="3" placeholder="Filter"/>
+                    </th>
+                    <th class="sortable">
+                        <span>BUDGETS ($) <div class="sort-arrows"><i class="fa fa-sort-asc"></i><i class="fa fa-sort-desc"></i></div></span> 
+                        <input class="filter-input" type="text" data-index="4" placeholder="Filter"/>
+                    </th>
+                    <th class="sortable">
+                        <span>REDEEM ($) <div class="sort-arrows"><i class="fa fa-sort-asc"></i><i class="fa fa-sort-desc"></i></div></span> 
+                        <input class="filter-input" type="text" data-index="5" placeholder="Filter"/>
+                    </th>
+                    <th>
+                        <span>ACTION</span>
+                        <div style="height: 35px;"></div>
+                    </th>
+                </tr>
+            </thead>
+
+            <tbody>
+                <tr *ngFor="let record of records">
+                    <td data-title="COST CENTER CODE">
+                        <span class="data-el">{{record.costCenterCode}}</span>
+                    </td>
+                    <td data-title="COST CENTER" class="link">
+                        <span class="data-el" [routerLink]="['cost-center-details/' + record.costCenterId]">{{record.costCenterName}}</span>
+                    </td>
+                    <td data-title="ASSIGN GROUP" class="no-wrap-text">
+                        <span class="data-el" mdTooltip="{{record.groups}}">{{record.groups}}</span>
+                    </td>
+                    <td data-title="JOB COUNTS">
+                        <span class="data-el">{{record.jobCount}}</span>
+                    </td>
+                    <td data-title="BUDGETS ($)">
+                        <span class="data-el">{{record.budgetLimit}}</span>
+                    </td>
+                    <td data-title="REDEEM ($)">
+                        <span class="data-el">{{record.redeem}}</span>
+                    </td>
+                    <td data-title="ACTION" class="actions">
+                        <div class="action_buttons">
+                            <span class="edit" (click)="editCostCenterPopup(record.costCenterId)"><i class="fa fa-pencil"></i></span>
+                            <span class="delete" (click)="deleteCostCenter(record)"><i class="fa fa-trash-o"></i></span>
+                        </div>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+</div>

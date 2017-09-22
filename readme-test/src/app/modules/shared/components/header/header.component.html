@@ -1,0 +1,36 @@
+<md-toolbar color="primary">
+    <button md-icon-button class="sidenav-toggle-btn" (click)="sidenav.toggle()">            
+        <md-icon class="md-24">menu</md-icon>
+    </button>
+    <span class="spacer"></span>
+    <div class="search-toggle-wrap" [class.hide]="true">
+        <button md-icon-button class="search-toggle-btn"> 
+            <md-icon>search</md-icon>
+        </button>
+    </div>
+    <div class="notifications-toggle-wrap" [class.hide]="true">
+        <button md-icon-button class="notifications-toggle-btn"> 
+            <md-icon>notifications</md-icon>
+            <span class="notification-count">10</span>
+        </button>
+    </div>
+    <div class="logged-user-info dropdown">
+        <div data-toggle="dropdown">
+            <div class="user-image"><i class="material-icons">perm_identity</i></div>
+            <div class="user-details">
+                <span class="user-name">{{userName}}</span>
+                <span class="user-role">{{userRole}}</span>
+            </div>
+            <div class="arrow">
+                <i class="fa fa-angle-down angle-arrow down-arrow"></i>
+                <i class="fa fa-angle-up angle-arrow up-arrow"></i>
+            </div>
+            <div class="clearfix"></div>
+        </div>
+        <ul class="dropdown-menu">
+            <li><a href="javascript:void(0);">My Profile</a></li>
+            <li><a href="javascript:void(0);" (click)="changePassword()">Change Password</a></li>
+            <li><a href="javascript:void(0);" (click)="logout()">Logout</a></li>
+        </ul>
+    </div>
+</md-toolbar>

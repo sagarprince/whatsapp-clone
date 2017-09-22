@@ -1,0 +1,64 @@
+<div class="lf-page-main-wrap">
+    <div class="login-page-bg">
+        <img src="assets/images/login_wallpaper.png" class="login-page-bg_pic" />
+    </div>
+    <div class="login row">
+        <div class="col-sm-12 col-md-12 col-xs-12 col-lg-12" style="height: 100%;">
+        <div class="wrapper-lg">
+            <div class="text-center"><img src="assets\images\login_logo.png" alt="Logo" title="Logo" /></div>
+            <div class="login-info">
+                
+                <form #loginForm="ngForm" novalidate>
+                    <div class="row has-feedback nopaddong margB30">
+                        <div class="col-sm-12 col-md-12 col-xs-12 col-lg-12  margB0"> 
+                            <label>User ID</label>
+                        </div>
+                        <div class="col-sm-12 col-md-12 col-xs-12 col-lg-12"> 
+                            <div class="home-input">
+                                <input  class="login-input" type="text" placeholder="Username"  
+                                    [(ngModel)]="user.userName" name="loginName"
+                                    #loginName="ngModel" autocomplete="off" required maxlength="50"/>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row has-feedback nopaddong" style="margin-top: 15px;">
+                        <div class="col-sm-12 col-md-12 col-xs-12 col-lg-12  margB0"> 
+                            <label>Password</label>
+                        </div>
+                        <div class="col-sm-12 col-md-12 col-xs-12 col-lg-12 margT0"> 
+                            <div class="home-input">
+                                <input  class="login-input" type="password" placeholder="Password" 
+                                    [(ngModel)]="user.password" name="loginPassword"
+                                    #password="ngModel" autocomplete="off" required maxlength="50"/>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row has-feedback nopaddong">
+                        <div class="col-sm-12 col-md-12 col-xs-12 col-lg-12"> 
+                            <div class="home-input">
+                                <md-checkbox name="rememberMe" [(ngModel)]="rememberMe"></md-checkbox>
+                                <label for="checkbox2" class="martop10" style="padding-left:5px;">Remember me</label>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row has-feedback nopaddong">
+                        <div class="col-sm-12 col-md-12 col-xs-12 col-lg-12"> 
+                        <div class="text-right"> 
+                        <button class="mdl-button mdl-js-button mdl-button--raised btn-orange" [disabled]="!loginForm.form.valid" (click)="login()">LOGIN</button>
+                        </div>
+                        </div>       
+                    </div> 
+                    <div class="row has-feedback user-pass nopaddong">                                  
+                        <div class="col-xs-12 padding-right-0 text-right link blue_text" (click)="gotoForgotPassword()">Forgot Password?</div>      
+                        <!--<a routerLink="forgotPassword">Forgot Password?</a>      -->
+                    </div>
+                </form>
+            </div>  
+        </div>
+        <div class="copyright-row">
+            <div class="col-sm-12 col-md-12 col-xs-12 col-lg-12 text-center padding30">
+                <p><small>Copyright © 2017, Printshop. All Rights Reserved.</small></p>
+            </div>
+        </div>
+    </div>
+</div>
